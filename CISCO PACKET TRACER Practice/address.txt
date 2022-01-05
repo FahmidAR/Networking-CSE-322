@@ -1,0 +1,21 @@
+ip route 172.16.0.0 255.255.0.0 172.18.0.1
+
+interface FastEthernet0/0
+ip address 172.19.0.2 255.255.0.0
+no shutdown
+
+router rip
+no network 172.17.0.0
+network 172.17.0.0
+
+enable secret class
+
+line console 0
+line vty 0 4
+password cisco
+service password-encryption
+banner motd #
+copy running-config startup-config
+
+show ip route
+
